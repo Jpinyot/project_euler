@@ -59,6 +59,6 @@ int		largest_prime_factor(long value)
 int		main(void)
 {
 	long ans = largest_prime_factor(600851475143);
-	printf("%ld", ans);
+	printf("%ld\n", ans);
 	return (0);
 }

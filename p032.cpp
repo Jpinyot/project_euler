@@ -23,22 +23,9 @@ int		is_pandigital(int val1, int val2)
 		str[i] = 0;
 	while (val1 || val2 || prod)
 	{
-		/* write (1 , "#", 1); */
-		if (val1)
-		{
-			str[val1 % 10] += 1;
-			val1 = val1 / 10;
-		}
-		if (val2)
-		{
-			str[val2 % 10] += 1;
-			val2 = val2 / 10;
-		}
-		if (prod)
-		{
-			str[prod % 10] += 1;
-			prod = prod / 10;
-		}
+		if (val1){ str[val1 % 10] += 1; val1 = val1 / 10;}
+		if (val2){ str[val2 % 10] += 1; val2 = val2 / 10;}
+		if (prod){ str[prod % 10] += 1; prod = prod / 10;}
 	}
 	if (str[0])
 		return (0);
@@ -56,16 +43,9 @@ int		sum_pandigital(void)
 	int			ret = 0;
 
 	for (i = 2; i < 9876; i++)
-	{
 		for (j = 123; j < 9876 / i; j++)
-		{
 			if (is_pandigital(i, j))
-			{
 				prod.push_back(i * j);
-				cout << i << j << i * j << '\n';
-			}
-		}
-	}
 	sort(prod.begin(), prod.end());
 	ret += prod[0];
 	for (i = 1; i < prod.size(); i ++)

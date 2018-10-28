@@ -14,7 +14,8 @@ int		triangle(int limit)
 	int		cnt;
 	int		tri = 0;
 
-	for (int i = 2; i <= 1000; i += 2) {
+	for (int i = 2; i <= 1000; i += 2)
+	{
 		cnt = 0;
 		for (int a = 2; a < i/3; a++)
 			if (i * (i - (2 * a)) % (2 * (i - a)) == 0)

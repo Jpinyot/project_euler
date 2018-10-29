@@ -25,10 +25,10 @@
 
 using namespace std;
 
-int limit = 12000;
-vector<int> num;
+int			limit = 12000;
+vector<int>	num;
 
-void	mps(int number, int sum, int product, int start)
+void	producr_sum(int number, int sum, int product, int start)
 {
     int k = number - sum + product;
     if (k < limit)
@@ -36,14 +36,14 @@ void	mps(int number, int sum, int product, int start)
         if (number < num[k])
             num[k] = number;
         for (int i = start; i < limit / number * 2; ++i)
-            mps(number * i, sum + i, product + 1, i);
+            producr_sum(number * i, sum + i, product + 1, i);
     }
 }
 string	product_sum(void)
 {
 	for (int i = 0; i < limit; ++i)
 		num.push_back(limit * 2);
-	mps(1, 1, 1, 2);
+	producr_sum(1, 1, 1, 2);
 	set<int> ns(num.begin() + 2, num.end());
 	return (to_string(accumulate(ns.begin(), ns.end(), 0)));
 }
